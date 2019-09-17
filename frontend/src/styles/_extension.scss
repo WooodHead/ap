@@ -1,0 +1,19 @@
+body.extension {
+  app-header {
+    height: 50px;
+
+    .change-view {
+      display: none;
+    }
+  }
+
+  app-panel-tile-list {
+    padding-top: 55px;
+
+    app-panel-tile {
+      mat-card.mat-card {
+        padding: 5px;
+      }
+    }
+  }
+}

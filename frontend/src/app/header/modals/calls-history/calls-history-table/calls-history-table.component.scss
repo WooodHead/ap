@@ -1,0 +1,58 @@
+/* Structure */
+.container {
+  position: relative;
+  min-height: 172px;
+}
+
+.table-container {
+  height: 172px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-cell {
+  height: 100%;
+  vertical-align: middle;
+}
+
+.call-button {
+  color: #02B956;  
+}
+
+.contacts-button {
+  color: #02B956;  
+}
+
+.call-received {
+  color: #7Ed29A;
+  vertical-align: middle;  
+}
+
+.call-made {
+  color: #FFB87A;  
+  vertical-align: middle;  
+}
+
+.gray {
+  background-color: #f5f5f5;
+}
+
+.edit-button {
+  color: #336699;  
+}

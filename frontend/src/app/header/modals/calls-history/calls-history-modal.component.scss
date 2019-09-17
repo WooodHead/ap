@@ -1,0 +1,49 @@
+.calls-history {
+  .box {
+    display: flex;
+  }
+
+  .title-column {
+    font-weight: bold;
+    padding: 10px 0 15px 15px;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+
+  .period-column {
+    flex: 1;
+    padding: 0 15px 15px 0;
+  }
+
+  .mat-select /deep/ .mat-select-trigger {
+    padding: 10px;
+  }
+
+  .mat-select /deep/ .mat-select-arrow {
+    color: #02B956;
+  }
+
+  .grid-column {
+    flex: 5;
+  }
+
+  .close-button {
+    position: relative;
+    align-self: flex-end;
+    background-color: #6cc82a;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+}
+
+.box::parent::parent {
+  padding: 0;
+}
+
+.edit-button {
+  color: #336699;  
+}

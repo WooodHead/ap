@@ -1,0 +1,20 @@
+<button
+    mat-icon-button
+    type="button"
+    [matMenuTriggerFor]="menu"
+    [disabled]="!list.length || disabled"
+    (click)="$event.stopPropagation();"
+    tabindex="-1"
+>
+  <mat-icon>history</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu" overlapTrigger="false">
+  <button
+      mat-menu-item
+      *ngFor="let item of list"
+      (click)="clicked.emit(item)"
+  >
+    {{ item }}
+  </button>
+</mat-menu>

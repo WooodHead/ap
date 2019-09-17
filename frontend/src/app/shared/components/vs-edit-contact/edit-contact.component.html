@@ -1,0 +1,49 @@
+<div class='box'>
+    <div class='title-column'>
+        <div>
+        <div class='header'>{{ (contact._id ? 'panel.edit-contact.title-edit' : 'panel.edit-contact.title-add') | translate }}</div>
+        </div>
+    </div>
+    <form [formGroup]='contactForm' (ngSubmit)='save()'>
+      <div class='right-panel container mat-elevation-z2'>
+        <mat-form-field class='right-padding'>
+          <mat-label>{{ 'panel.edit-contact.phone-number' | translate }}</mat-label>
+          <input matInput formControlName='number' required>
+        </mat-form-field>
+        <mat-form-field class='right-padding'>
+          <mat-label>{{ 'panel.edit-contact.first-name' | translate }}</mat-label>
+          <input matInput formControlName='firstName' required>
+        </mat-form-field>
+        <mat-form-field class='right-padding'>
+          <mat-label>{{ 'panel.edit-contact.last-name' | translate }}</mat-label>
+          <input matInput formControlName='lastName' required>
+        </mat-form-field>
+        <mat-form-field class='right-padding'>
+          <mat-label>{{ 'panel.edit-contact.note' | translate }}</mat-label>
+          <input matInput formControlName='note'>
+        </mat-form-field>
+        <div class='bottom-panel'>
+          <div class='bottom-left'>
+            <button
+              mat-raised-button
+              (click)='close()'
+              class='cancel-button'
+              type='button'
+              >{{ 'panel.edit-contact.cancel' | translate }}
+            </button>
+          </div>
+          <div class='bottom-right'>
+            <input id='mark-as-favorite' class='mark-as-favorite' formControlName='isFavorite' type='checkbox'/>
+            <label class='mark-as-favorite-label' for="mark-as-favorite">{{ 'panel.edit-contact.mark-as-favorite' | translate }}</label>
+            <button
+              [disabled]='!contactForm.valid'
+              class='save-button'
+              mat-raised-button
+              type='submit'
+            >{{ 'panel.edit-contact.save' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  

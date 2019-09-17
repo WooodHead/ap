@@ -1,0 +1,70 @@
+.contacts {
+  display: block;
+  .box {
+    display: flex;
+  }
+
+  .title-column {
+    font-weight: bold;
+    padding: 10px 0 15px 15px;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1.5;
+  }
+
+  .top-divider {
+    display: inline-block;
+  }
+
+  .add-icon {
+    display: inline-block;
+    border-left: solid 1px rgba(0, 0, 0, 0.12);
+    padding-left: 5px;
+    margin-left: 12px;
+    button {
+      min-width: 36px;
+    }
+  }
+
+  .add-icon /deep/ .mat-icon {
+    color: #8DC73F;
+    background-color: white!important;
+  }
+
+  .add-icon /deep/ .mat-icon-button {
+    background-color: white!important;
+  }
+
+  .favorites-first {
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-accent .mat-pseudo-checkbox-checked,
+    .mat-accent .mat-pseudo-checkbox-indeterminate,
+    .mat-pseudo-checkbox-checked,
+    .mat-pseudo-checkbox-indeterminate {
+    background-color: #8DC73F;
+  }
+
+  .grid-column {
+    flex: 6.5;
+  }
+
+  .close-button {
+    position: relative;
+    align-self: flex-end;
+    background-color: #8DC73F;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+}
+
+.box::parent::parent {
+  padding: 0;
+}

@@ -1,0 +1,323 @@
+{
+  "call-center": {
+    "Status": {
+      "key": "Status",
+      "title": "Status",
+      "type": "static"
+    },
+    "StatusTime": {
+      "key": "StatusTime",
+      "title": "Time in Status",
+      "type": "unixtime",
+      "display": "duration",
+      "live": []
+    },
+    "AnswerInCalls": {
+      "key": "AnswerInCalls",
+      "title": "In Calls",
+      "type": "sum"
+    },
+    "AnswerOUTCalls": {
+      "key": "AnswerOUTCalls",
+      "title": "Out Calls",
+      "type": "sum"
+    },
+    "NoAnswerOUTCalls": {
+      "key": "NoAnswerOUTCalls",
+      "title": "Failed Attempts",
+      "type": "sum"
+    },
+    "SumCalls": {
+      "key": "SumCalls",
+      "title": "Sum Calls",
+      "type": "sum"
+    },
+    "EffectiveCalls": {
+      "key": "EffectiveCalls",
+      "title": "Eff. Calls",
+      "type": "sum"
+    },
+    "LastLogin": {
+      "key": "LastLogin",
+      "title": "Last Login",
+      "type": "unixtime",
+      "display": "date"
+    },
+    "LoginTime": {
+      "key": "LoginTime",
+      "title": "Login Time",
+      "type": "unixtime",
+      "display": "duration",
+      "live": []
+    },
+    "TotalCallDuration": {
+      "key": "TotalCallDuration",
+      "title": "Call Dur.",
+      "type": "sum",
+      "display": "duration",
+      "live": ["talking", "ptalking", "hold"]
+    },
+    "TotalCallDurationWith": {
+      "key": "TotalCallDurationWith",
+      "title": "Total Call Dur.",
+      "type": "sum",
+      "display": "duration",
+      "live": ["dialing", "talking", "ptalking", "hold"]
+    },
+    "AvgCallsDuration": {
+      "key": "AvgCallsDuration",
+      "title": "Avg Call Dur.",
+      "type": "avg",
+      "display": "duration",
+      "calc": {
+        "sum": ["TotalCallDuration"],
+        "divide": ["AnswerInCalls", "AnswerOUTCalls"]
+      }
+    },
+    "TotalEffectiveDuration": {
+      "key": "TotalEffectiveDuration",
+      "title": "Total Eff. Dur.",
+      "type": "sum",
+      "display": "duration"
+    },
+    "AvgEffCallsDuration": {
+      "key": "AvgEffCallsDuration",
+      "title": "Avg. Eff. Calls Dur.",
+      "type": "avg",
+      "display": "duration",
+      "calc": {
+        "sum": ["TotalEffectiveDuration"],
+        "divide": ["EffectiveCalls"]
+      }
+    },
+    "TotalPauseDuration": {
+      "key": "TotalPauseDuration",
+      "title": "Total Pause Dur.",
+      "type": "static",
+      "display": "duration",
+      "live": ["break"]
+    },
+    "LastPause": {
+      "key": "LastPause",
+      "title": "Last Pause",
+      "type": "unixtime",
+      "display": "date"
+    },
+    "PauseDuration": {
+      "key": "PauseTime",
+      "title": "Time in Pause",
+      "type": "unixtime",
+      "display": "duration",
+      "live": ["break"]
+    },
+    "TotalIdleDuration": {
+      "key": "TotalIdleDuration",
+      "title": "Total Idle",
+      "type": "static",
+      "display": "duration",
+      "live": ["idle"]
+    },
+    "LastCall": {
+      "key": "LastCall",
+      "title": "Last call",
+      "type": "unixtime",
+      "display": "date"
+    },
+    "TalkingTo": {
+      "key": "TalkingTo",
+      "title": "Talking To",
+      "type": "static"
+    },
+    "CallerIDName": {
+      "key": "CallerIDName",
+      "title": "Caller ID",
+      "type": "static"
+    },
+    "FromQueue": {
+      "key": "FromQueue",
+      "title": "From Queue (ID)",
+      "type": "static"
+    },
+    "FromQueueName": {
+      "key": "FromQueueName",
+      "title": "From Queue",
+      "type": "static"
+    },
+    "WaitingCalls": {
+      "key": "WaitingCalls",
+      "title": "Waiting Calls",
+      "type": "sum"
+    },
+    "ExtraData1": {
+      "key": "ExtraData1",
+      "title": "Extra Data 1",
+      "type": "static"
+    },
+    "ExtraData2": {
+      "key": "ExtraData2",
+      "title": "Extra Data 2",
+      "type": "static"
+    },
+    "ExtraData3": {
+      "key": "ExtraData3",
+      "title": "Extra Data 3",
+      "type": "static"
+    },
+    "ExtraData4": {
+      "key": "ExtraData4",
+      "title": "Extra Data 4",
+      "type": "static"
+    }
+  },
+  "dialer": {
+    "Status": {
+      "key": "Status",
+      "title": "Status",
+      "type": "static"
+    },
+    "StatusTime": {
+      "key": "last_state_change",
+      "title": "Time in Status",
+      "type": "datetime",
+      "display": "duration",
+      "live": []
+    },
+    "lastCallFinish": {
+      "key": "last_call_finish",
+      "title": "Last Call Finish",
+      "type": "datetime",
+      "display": "date"
+    },
+    "callsToday": {
+      "key": "calls_today",
+      "title": "Calls Today",
+      "type": "static"
+    },
+    "talkingTo": {
+      "key": "phoneNumber",
+      "title": "Talking To",
+      "type": "static",
+      "hide": true
+    },
+    "leadID": {
+      "key": "lead_id",
+      "title": "Lead ID",
+      "type": "static",
+      "hide": true
+    },
+    "crmCampaign": {
+      "key": "crmCampaign",
+      "title": "CRM Campaign",
+      "type": "static",
+      "hide": true
+    },
+    "crmStatus": {
+      "key": "crmStatus",
+      "title": "CRM Status",
+      "type": "static",
+      "hide": true
+    },
+    "localTime": {
+      "key": "offset",
+      "title": "Local Time",
+      "type": "static",
+      "hide": true
+    },
+    "rank": {
+      "key": "rank",
+      "title": "Rank",
+      "type": "static",
+      "hide": true
+    },
+    "affiliate": {
+      "key": "affiliate",
+      "title": "Affiliate",
+      "type": "static",
+      "hide": true
+    },
+    "source1": {
+      "key": "source1",
+      "title": "Source1",
+      "type": "static",
+      "hide": true
+    },
+    "source2": {
+      "key": "source2",
+      "title": "Source2",
+      "type": "static",
+      "hide": true
+    },
+    "source3": {
+      "key": "source3",
+      "title": "Source3",
+      "type": "static",
+      "hide": true
+    },
+    "source4": {
+      "key": "source4",
+      "title": "Source4",
+      "type": "static",
+      "hide": true
+    },
+    "source": {
+      "key": "source",
+      "title": "Source",
+      "type": "static",
+      "hide": true
+    },
+    "title": {
+      "key": "title",
+      "title": "Title",
+      "type": "static",
+      "hide": true
+    },
+    "first_name": {
+      "key": "first_name",
+      "title": "First Name",
+      "type": "static",
+      "hide": true
+    },
+    "last_name": {
+      "key": "last_name",
+      "title": "Last Name",
+      "type": "static",
+      "hide": true
+    },
+    "address1": {
+      "key": "address1",
+      "title": "Address 1",
+      "type": "static",
+      "hide": true
+    },
+    "address2": {
+      "key": "address2",
+      "title": "Address 2",
+      "type": "static",
+      "hide": true
+    },
+    "country_code": {
+      "key": "country_code",
+      "title": "Country",
+      "type": "static",
+      "hide": true
+    },
+    "city": {
+      "key": "city",
+      "title": "City",
+      "type": "static",
+      "hide": true
+    },
+    "email": {
+      "key": "email",
+      "title": "Email",
+      "type": "static",
+      "hide": true
+    },
+    "comments": {
+      "key": "comments",
+      "title": "Comments",
+      "type": "static",
+      "hide": true
+    }
+  }
+}

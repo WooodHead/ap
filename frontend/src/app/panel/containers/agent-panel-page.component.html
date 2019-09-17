@@ -1,0 +1,24 @@
+<div
+    [ngClass]="{
+      vertical: (panelView$ | async) === 'vertical',
+      dialer: config.dialerEnabled,
+      webrtc: config.webrtc
+    }"
+>
+  <app-header
+    [mode]="mode$ | async"
+    [agent]="agent$ | async"
+    [version]="config.version"
+    [isWebRTC]="config.webrtc && (useWebRTC$ | async)"
+    [caller]="caller$ | async"
+    [status]="status$ | async"
+    (webRTCReconnect)="onWebRTCReconnect()"
+  ></app-header>
+
+  <app-panel-tile-list
+      *ngIf="!(tableLoading$ | async)"
+      [@fade]
+      [columns]="columns$ | async"
+      [data]="tableData$ | async"
+  ></app-panel-tile-list>
+</div>

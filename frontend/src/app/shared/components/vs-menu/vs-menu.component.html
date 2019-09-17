@@ -1,0 +1,12 @@
+<button mat-raised-button [matMenuTriggerFor]="menu">
+  {{ title }}
+  <mat-icon>arrow_drop_down</mat-icon>
+</button>
+
+<!--<mat-menu #menu overlapTrigger="false">-->
+<mat-menu #menu overlapTrigger="false" [hasBackdrop]="hasBackdrop">
+  <button mat-menu-item *ngFor="let item of list" (click)="clicked.emit(item)">
+    <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+    {{ item.text }}
+  </button>
+</mat-menu>

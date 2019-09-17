@@ -1,0 +1,55 @@
+@import '_colors';
+
+:host {
+  text-align: center;
+  padding: 5px;
+  align-items: center;
+
+  mat-card {
+    padding-bottom: 6px;
+
+    &.status {
+      min-width: 100px;
+  
+      mat-card-content {
+        color: $yellow;
+      }
+  
+      @each $status, $color in $status-colors {
+        &.#{$status} {
+          mat-card-content {
+            color: $color;
+          }
+        }
+      }
+    }  
+  }
+  
+
+  mat-card {
+    padding: 10px;
+    white-space: nowrap;
+
+    mat-card-content {
+      height: 32px;
+    }
+
+    mat-card-header {
+      justify-content: center;
+
+      .mat-card-title {
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
+:host-context(.vertical) {
+  flex: 1 0 40%;
+
+  mat-card {
+    .mat-card-title {
+      max-width: 100%;
+    }
+  }
+}

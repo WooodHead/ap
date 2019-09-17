@@ -1,0 +1,12 @@
+:host {
+  .mat-icon-button {
+    display: block;
+    font-size: inherit;
+    width: 2.5em;
+    height: 2.5em;
+
+    .mat-icon {
+      font-size: 150%;
+    }
+  }
+}

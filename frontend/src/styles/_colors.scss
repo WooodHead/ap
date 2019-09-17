@@ -1,0 +1,26 @@
+$green: #99d945;
+$green-accent: #5cb85c;
+$caret: #ff5722;
+$yellow: #FFCF4A;
+$blue: #0000FF;
+$cyan: #4ac3ff;
+$md-seporator-color: rgba(0, 0, 0, 0.12);
+
+$status-colors: (
+  idle: $green-accent,
+  dialing: $caret,
+  talking: $caret,
+  ptalking: $caret,
+  incall: $caret,
+  talkout: #7b8cdc,
+  ringing: #ffff00,
+  unreachable: $cyan,
+  loggedout: #c9e4ff,
+  busy: #B0482F,
+  dead: #284240,
+  dispo: #637F9F,
+  hold: $blue,
+  ready: #63A69F
+);
+
+

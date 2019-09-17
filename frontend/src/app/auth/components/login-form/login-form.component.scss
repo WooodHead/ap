@@ -1,0 +1,82 @@
+@import '_colors';
+
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 350px;
+
+  mat-card-header {
+    /deep/ .mat-card-header-text {
+      margin: 0;
+    }
+
+    justify-content: space-between;
+  }
+
+  mat-card-content {
+    margin-bottom: 0;
+    padding: 12px 0;
+
+    > div {
+      display: flex;
+
+      mat-form-field {
+        width: 100%;
+        min-width: 110px;
+        flex: 3;
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:active,
+        input:-webkit-autofill:focus {
+          background-color: #fff !important;
+          -webkit-box-shadow: 0 0 0 1000px white inset !important;
+        }
+
+        .mat-icon-button {
+          display: block;
+          font-size: inherit;
+          width: 2.5em;
+          height: 2.5em;
+
+          .mat-icon {
+            font-size: 130%;
+          }
+
+          &:hover {
+            /deep/ .mat-button-focus-overlay {
+              background: none;
+            }
+          }
+        }
+      }
+
+      &.webrtc-fields {
+        height: 57px;
+        justify-content: space-between;
+
+        div:first-child {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+
+  mat-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 24px 0 0;
+
+    p {
+      line-height: 36px;
+      font-weight: bold;
+    }
+
+    vs-button:last-child {
+      margin-left: 10px;
+    }
+  }
+}

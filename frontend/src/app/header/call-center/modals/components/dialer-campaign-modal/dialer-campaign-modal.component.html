@@ -1,0 +1,35 @@
+<div [ngSwitch]="switchMode">
+    <div *ngSwitchCase="'campaign'">
+        <h2 mat-dialog-title>{{ 'panel.dialer.modals.select-campaign.campaign-title' | translate }}</h2>
+
+        <div>
+            <mat-chip-list>
+                <mat-chip class="campaign-item" *ngFor="let item of (campaigns$ | async)" (click)="selectCampaign(item)"
+                    color="primary" [disabled]="!item.noLeadsLoginAllowed && item.empty"
+                    [matTooltip]="'panel.dialer.modals.select-campaign.empty-leads' | translate"
+                    [matTooltipDisabled]="item.noLeadsLoginAllowed || !item.empty">
+                    {{ item.name }}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="'userGroup'">
+        <h2 mat-dialog-title>{{ 'panel.dialer.modals.select-campaign.user-group-title' | translate }}</h2>
+
+        <div>{{'panel.dialer.modals.select-campaign.user-group-name' | translate}} :
+            <b>{{(userGroup$ | async)?.userGroup}}</b>
+        </div>
+        
+        <div [innerHTML]="campaignsInfo"></div>
+
+        <mat-dialog-actions>
+            <vs-button (clicked)="close()" color="warn">{{ 'cancel' | translate }}</vs-button>
+            <vs-button [matTooltip]="'panel.dialer.modals.select-campaign.empty-campaigns' | translate"
+                [matTooltipDisabled]="submitCampaign" [disabled]="!submitCampaign" (clicked)="selectCampaign()"
+                color="accent">{{ 'panel.dialer.modals.select-campaign.turn-on-dialer' | translate }}</vs-button>
+        </mat-dialog-actions>
+    </div>
+</div>
+
+<vs-spinner *ngIf="loading$ | async" [@fade]></vs-spinner>

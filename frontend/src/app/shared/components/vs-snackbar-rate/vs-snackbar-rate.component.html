@@ -1,0 +1,18 @@
+<p>{{ 'panel.call-rate.title' | translate }}</p>
+
+<div class="button-row">
+  <button
+      mat-icon-button
+      *ngFor="let curRate of rates; index as i"
+      (mouseleave)="hoveredRate = 0"
+      (mouseenter)="hoveredRate = i + 1"
+      (click)="rate(curRate)"
+  >
+    <mat-icon>{{ hoveredRate >= curRate ? 'star' : 'star_border' }}</mat-icon>
+  </button>
+</div>
+
+<div class="hints">
+  <span>{{ 'panel.call-rate.hint-bad' | translate }}</span>
+  <span>{{ 'panel.call-rate.hint-good' | translate }}</span>
+</div>

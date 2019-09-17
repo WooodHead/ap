@@ -1,0 +1,38 @@
+<div class="agent-data">
+  <div *ngIf="agent">
+    <app-logo [version]="version"></app-logo>
+    <div class="icon-cell">
+      <i class="material-icons">
+        person
+      </i> {{ agent.username }}
+    </div>
+    <div>ID: {{ agent.agent }}</div>
+
+    <div>{{ 'panel.ext-id' | translate }}: {{ agent.extension }}</div>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div *ngIf="isWebRTC" class="webrtc-status">
+    <div *ngIf="status" [ngClass]="{'no-margin': status === 'disconnected'}">
+      {{ 'panel.status' | translate }}: <span class="status {{ status }}">{{ 'panel.webrtc.' + status | translate }}</span>
+    </div>
+
+    <div class="reconnect" *ngIf="status === 'disconnected'">
+      <button mat-icon-button (click)="webRTCReconnect.emit()">
+        <vs-icon [size]="18">
+          refresh
+        </vs-icon>
+      </button>
+    </div>
+
+    <div *ngIf="caller">{{ 'panel.caller' | translate }}: {{ caller }}</div>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="header-actions">
+  <app-dialer-actions *ngIf="mode === 'dialer'"></app-dialer-actions>
+  <app-call-center-actions *ngIf="mode === 'call-center'"></app-call-center-actions>
+</div>

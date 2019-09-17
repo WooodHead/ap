@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  label {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  mat-radio-group {
+    mat-radio-button {
+      margin-left: 20px;
+    }
+  }
+}

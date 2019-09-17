@@ -1,0 +1,15 @@
+.phone-input {
+  margin-top: -10px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+
+  vs-button + vs-button {
+    margin-left: 8px;
+  }
+}

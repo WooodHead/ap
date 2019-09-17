@@ -1,0 +1,28 @@
+:host {
+  h2 {
+    line-height: 176px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .table-container {
+    height: 176px;
+    overflow: auto;
+
+    table {
+      width: 100%;
+
+      tr.mat-header-row {
+        height: 36px;
+      }
+
+      td.cdk-column-action {
+        button {
+          height: 30px;
+          width: 30px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+}

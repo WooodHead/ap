@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>
+  {{ 'panel.dialer.modals.disconnect.title' | translate }}:
+</h2>
+
+<mat-dialog-actions>
+  <vs-button (clicked)="close()" color="warn">{{ 'panel.dialer.modals.disconnect.actions.switch-to-call-center' | translate }}</vs-button>
+  <vs-button (clicked)="close(true)" color="accent">{{ 'panel.dialer.modals.disconnect.actions.reconnect' | translate }}</vs-button>
+</mat-dialog-actions>

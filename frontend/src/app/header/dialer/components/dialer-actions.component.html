@@ -1,0 +1,124 @@
+<vs-spinner *ngIf="loading$ | async" class="global"></vs-spinner>
+
+<div>
+  <div>
+    <mat-slide-toggle labelPosition="before" [checked]="true" (change)="onSwitchMode()"
+      [disabled]="(loginDisabled$ | async)" [matTooltip]="'panel.dialer.switch-tooltip' | translate"
+      [matTooltipDisabled]="!(loginDisabled$ | async)">
+      <ng-container *ngIf="(panelView$ | async) === 'horizontal'">
+          {{ 'panel.dialer.campaign' | translate }}: <b>{{ (campaign$| async)?.name }}</b>
+      </ng-container>
+
+      <ng-container *ngIf="(panelView$ | async) === 'vertical'">
+        {{ 'panel.dialer.campaign-shortened' | translate }}: <b>{{ (campaign$| async)?.name }}</b>
+      </ng-container>
+    </mat-slide-toggle>
+  </div>
+
+
+  <div>
+    <button mat-icon-button mat-stroked-button *ngIf="!(showHangUp$ | async) && !(showPause$ | async)"
+      [matTooltip]="'panel.tooltips.calls-history' | translate" (click)="onShowCallsHistory()">
+      <vs-icon>
+        history
+      </vs-icon>
+    </button>
+  </div>
+
+  <div>
+    <button mat-icon-button mat-stroked-button *ngIf="!(showHangUp$ | async) && !(showPause$ | async)"
+      [matTooltip]="'panel.tooltips.call-back' | translate" [matBadge]="activeCallbacks$ | async"
+      [matBadgeHidden]="!(activeCallbacks$ | async)" matBadgeColor="warn" (click)="onShowCallbacks()">
+      CB
+    </button>
+  </div>
+  <div>
+    <button mat-icon-button mat-stroked-button *ngIf="!(showHangUp$ | async) && !(showPause$ | async)"
+      [matTooltip]="'panel.tooltips.redial' | translate" (click)="redial()">
+      RD
+    </button>
+  </div>
+
+  <div>
+    <button mat-icon-button mat-stroked-button *ngIf="!(showHangUp$ | async) && !(showPause$ | async)"
+      [matTooltip]="'panel.tooltips.manual-dial' | translate" (click)="onManualDial()">
+      MD
+    </button>
+  </div>
+  <div>
+    <button
+        mat-icon-button
+        mat-stroked-button
+        [matTooltip]="'panel.tooltips.transfer' | translate"
+        *ngIf="showHangUp$ | async"
+        (click)="onManualDial('transfer')"
+    >
+      <vs-icon>arrow_forward</vs-icon>
+    </button>
+  </div>
+  <div>
+    <button
+        [color]="(onHold$ | async) ? 'warn' : 'inherit'"
+        mat-icon-button
+        mat-stroked-button
+        [matTooltip]="((onHold$ | async) ? 'panel.tooltips.release-hold' : 'panel.tooltips.hold') | translate"
+        *ngIf="showHangUp$ | async"
+        (click)="onHold()"
+    >
+      <vs-icon>phone_paused</vs-icon>
+    </button>
+  </div>
+  <div></div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div>
+  <app-crm-button *ngIf="config.notificator.enabled"></app-crm-button>
+  <div>
+    <button mat-icon-button mat-stroked-button color="warn" *ngIf="showHangUp$ | async"
+      [matTooltip]="'panel.tooltips.hang-up' | translate" (click)="onHangUp()">
+      <vs-icon>
+        call_end
+      </vs-icon>
+    </button>
+  </div>
+
+  <div>
+    <button mat-icon-button mat-stroked-button color="warn" *ngIf="showAnswerMachine() && (showHangUp$ | async)"
+      [matTooltip]="'panel.tooltips.quick-hang-up' | translate" (click)="onQuickHangUp()">
+      A
+    </button>
+  </div>
+
+  <div>
+    <button 
+      *ngIf="(showPause$ | async) && !(showHangUp$ | async)"
+      mat-icon-button mat-stroked-button
+      [matTooltip]="'panel.tooltips.pause' | translate"
+      [matMenuTriggerFor]="menu"
+      >
+      <vs-icon>
+        pause
+      </vs-icon>
+      <mat-menu #menu="matMenu" overlapTrigger="false">
+        <button (click)="onPause(item.pauseCode)" mat-menu-item *ngFor="let item of config.pauses">{{ item.pauseReason }}</button>
+      </mat-menu>
+    </button>
+    <button *ngIf="!(showPause$ | async) && !(showHangUp$ | async)" mat-icon-button mat-stroked-button
+      [matTooltip]="'panel.tooltips.un-pause' | translate" (click)="onUnPause()">
+      <vs-icon>
+        play_arrow
+      </vs-icon>
+    </button>
+  </div>
+
+  <div>
+    <button mat-icon-button mat-stroked-button color="warn" [matTooltip]="'panel.tooltips.logout' | translate"
+      [disabled]="(loginDisabled$ | async)" (click)="onLogout()">
+      <vs-icon>
+        exit_to_app
+      </vs-icon>
+    </button>
+  </div>
+</div>

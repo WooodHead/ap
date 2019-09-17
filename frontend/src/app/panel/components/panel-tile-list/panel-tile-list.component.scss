@@ -1,0 +1,25 @@
+:host {
+  padding: 80px 10px 0;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  > div {
+    display: flex;
+  }
+}
+
+:host-context(.vertical) {
+  padding-top: 130px;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+
+  > div {
+    flex-wrap: wrap;
+  }
+}
+
+:host-context(.vertical.dialer), :host-context(.vertical.webrtc) {
+  padding-top: 190px;
+}

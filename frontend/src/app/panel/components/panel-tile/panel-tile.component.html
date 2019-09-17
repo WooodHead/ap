@@ -1,0 +1,12 @@
+<mat-card [className]="getClassName()">
+  <mat-card-header>
+    <mat-card-title>{{ 'panel.table.' + key | translate }}</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content [ngSwitch]="display">
+    <h2 *ngSwitchCase="'duration'">{{ data | duration }}</h2>
+    <h2 *ngSwitchCase="'date'">{{ data | date:'shortTime' }}</h2>
+
+    <h2 *ngSwitchDefault>{{ data | initialValue }}</h2>
+  </mat-card-content>
+</mat-card>

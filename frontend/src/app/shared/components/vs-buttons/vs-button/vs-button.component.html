@@ -1,0 +1,12 @@
+<button
+  mat-raised-button
+  [disabled]="disabled"
+  [type]="type"
+  [color]="color"
+  [matTooltip]="tooltip"
+  [tabindex]="tabindex"
+  (click)="clicked.emit()"
+>
+  <vs-icon *ngIf="icon">{{ icon }}</vs-icon>
+  <ng-content></ng-content>
+</button>

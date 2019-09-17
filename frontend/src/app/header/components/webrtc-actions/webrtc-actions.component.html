@@ -1,0 +1,91 @@
+<div>
+  <button
+      mat-icon-button
+      mat-stroked-button
+      *ngIf="isInCall"
+      [matTooltip]="'panel.tooltips.dialpad' | translate"
+      (click)="showDialpad.emit()"
+  >
+    <vs-icon>dialpad</vs-icon>
+  </button>
+</div>
+<!--<div>-->
+  <!--<button-->
+      <!--mat-icon-button-->
+      <!--mat-stroked-button-->
+      <!--*ngIf="isInCall"-->
+      <!--[matTooltip]="'panel.tooltips.conference' | translate"-->
+      <!--(click)="manualDial.emit('conference')"-->
+  <!--&gt;-->
+    <!--<vs-icon>add</vs-icon>-->
+  <!--</button>-->
+<!--</div>-->
+<div>
+  <button
+      mat-icon-button
+      mat-stroked-button
+      *ngIf="isInCall"
+      [matTooltip]="'panel.tooltips.transfer' | translate"
+      (click)="manualDial.emit('transfer')"
+  >
+    <vs-icon>arrow_forward</vs-icon>
+  </button>
+</div>
+<div>
+  <button
+      mat-icon-button
+      mat-stroked-button
+      *ngIf="isInCall && !isRinging"
+      [matTooltip]="'panel.tooltips.hold' | translate"
+      (click)="hold.emit()"
+  >
+    <vs-icon>phone_paused</vs-icon>
+  </button>
+</div>
+<div *ngIf="!isInCall && !isRinging">
+  <button
+      mat-icon-button
+      mat-stroked-button
+      [matTooltip]="'panel.tooltips.call' | translate"
+      (click)="manualDial.emit()"
+  >
+    <vs-icon>call</vs-icon>
+  </button>
+</div>
+<div *ngIf="isRinging">
+  <button
+      mat-icon-button
+      mat-stroked-button
+      color="accent"
+      [matTooltip]="'panel.tooltips.answer' | translate"
+      (click)="answer.emit()"
+  >
+    <vs-icon>call</vs-icon>
+  </button>
+</div>
+
+<div>
+  <button
+      mat-icon-button
+      mat-stroked-button
+      [matTooltip]="'panel.tooltips.calls-history' | translate"
+      (click)="showCallsHistory.emit()"
+  >
+    <vs-icon>
+      history
+    </vs-icon>
+  </button>
+</div>
+
+<div>
+  <button
+      mat-icon-button
+      mat-stroked-button
+      [matTooltip]="'panel.tooltips.contacts' | translate"
+      (click)="showContacts.emit()"
+  >
+    <vs-icon>
+      contacts
+    </vs-icon>
+  </button>
+</div>

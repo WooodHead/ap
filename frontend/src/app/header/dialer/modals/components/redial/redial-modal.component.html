@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>
+  {{ 'panel.dialer.modals.redial' | translate }} : {{ (redialData$ | async)?.phoneNumber || ('panel.dialer.unknown' | translate) }}
+</h2>
+
+<h3>
+  <span *ngIf="!(loading$ | async)">
+    {{ (fullName$ | async) || ('panel.dialer.unknown' | translate) }}
+  </span>
+</h3>
+
+<mat-dialog-actions>
+  <vs-button (clicked)="close()" color="warn">{{ 'cancel' | translate }}</vs-button>
+  <vs-button (clicked)="dial()" color="accent">{{ 'dial' | translate }}</vs-button>
+</mat-dialog-actions>
+
+
+<vs-spinner *ngIf="loading$ | async"></vs-spinner>

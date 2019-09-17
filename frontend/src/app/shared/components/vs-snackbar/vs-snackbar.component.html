@@ -1,0 +1,3 @@
+<span class="mat-typography">{{ data.message | translate:data.params }}</span>
+
+<button *ngIf="data.action" mat-button (click)="close()">{{ data.action }}</button>

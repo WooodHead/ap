@@ -1,0 +1,108 @@
+:host {
+    display: initial;
+    .box {
+      display: flex;
+      height: 100%;
+    }
+  
+    .title-column {
+      font-weight: bold;
+      padding: 10px 0 15px 15px;
+      justify-content: left;
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+  
+    .right-panel {
+      flex: 6;
+      padding: 1rem;
+    }
+  
+    .right-panel /deep/ .mat-form-field-infix {
+      width: 10rem;
+    }
+  
+    .bottom-panel {
+      padding-top: 1rem;
+    }
+  
+    .bottom-left {
+      display: inline-block;
+    }
+  
+    .save-button {
+      position: relative;
+      align-self: flex-end;
+      background-color: #8dc73f;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  
+    .cancel-button {
+      position: relative;
+      align-self: flex-end;
+      background-color: #c76f3f;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  
+    .bottom-right {
+      display: inline-block;
+      float: right;
+    }
+  
+    .mark-as-favorite-label {
+      display: inline-block;
+      line-height: 40px;
+      height: 40px;
+      width: 250px;
+      -webkit-font-smoothing: antialiased; 
+      margin-top: 5px;
+      font: inherit;
+      color: #959595;
+      text-align:center;
+    }
+  
+    .mark-as-favorite {
+      display: none;
+    }
+  
+    .mark-as-favorite:checked + .mark-as-favorite-label {
+      color: #525252;
+    }
+  
+    .mark-as-favorite:checked + .mark-as-favorite-label:before {
+      color: #FFCC00;
+    }
+  
+    .mark-as-favorite-label:before {
+      content: "\2605";
+      font-size: 30px;
+      margin: 4px;
+      color: #B8B8B8;
+    }
+  
+    .close-button {
+      position: relative;
+      align-self: flex-end;
+      background-color: #6cc82a;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+  
+    .right-padding {
+      padding-right: 1rem;
+    }
+  }
+  
+  .box::parent::parent {
+    padding: 0;
+  }
+  

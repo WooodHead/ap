@@ -1,0 +1,79 @@
+<mat-card>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" autoComplete='off'>
+    <vs-spinner *ngIf="loading" [@fade]></vs-spinner>
+    <mat-card-header>
+      <mat-card-title><h3>{{ 'login.title' | translate }}</h3></mat-card-title>
+      <vs-image width="90" src="logo"></vs-image>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <div>
+        <mat-form-field appearance="legacy">
+          <mat-label>{{ 'login.agent' | translate }}</mat-label>
+          <input
+              matInput
+              formControlName="agent"
+              placeholder="{{ 'login.placeholder-agent' | translate }}"
+          >
+          <vs-recently-used
+              matSuffix
+              [list]="formData.recentlyUsed.agent"
+              [disabled]="loggedIn"
+              (clicked)="setFromRecentlyUsed('agent', $event)"
+          ></vs-recently-used>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="legacy">
+          <mat-label>{{ 'login.extension' | translate }}</mat-label>
+          <input
+              matInput
+              formControlName="extension"
+              placeholder="{{ 'login.placeholder-extension' | translate }}"
+          >
+          <vs-recently-used
+              matSuffix
+              [list]="formData.recentlyUsed.extension"
+              [disabled]="loggedIn"
+              (clicked)="setFromRecentlyUsed('extension', $event)"
+          ></vs-recently-used>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="isWebrtc" class="webrtc-fields">
+        <div>
+          <mat-checkbox formControlName="useWebRTC">{{ 'login.useWebRTC' | translate }}</mat-checkbox>
+        </div>
+        <div
+            *ngIf="form.get('useWebRTC').value"
+            [@fade]="{ value: triggerValue, params: { duration: 200 } }"
+        >
+          <mat-form-field appearance="legacy">
+            <mat-label>{{ 'login.extension-secret' | translate }}</mat-label>
+            <input
+                matInput
+                formControlName="secret"
+                type="password"
+            >
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-footer>
+      <div *ngIf="loggedIn; else loggedOut">
+        <vs-button color="accent" (clicked)="onOpenPanel()">{{ 'login.open-panel' | translate }}</vs-button>
+        <vs-button color="warn" (clicked)="onLogout()">{{ 'login.logout' | translate }}</vs-button>
+      </div>
+
+      <ng-template #loggedOut>
+        <vs-button color="accent" type="submit">{{ 'login.sign-in' | translate }}</vs-button>
+      </ng-template>
+    </mat-card-footer>
+  </form>
+</mat-card>

@@ -1,0 +1,71 @@
+<div class="table-container" *ngIf="callbacks.length">
+  <table mat-table [dataSource]="callbacks">
+    <ng-container matColumnDef="leadId">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.modals.lead-id' | translate }}</th>
+      <td mat-cell *matCellDef="let item"> {{ item.leadId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.modals.phone-number' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item.phoneNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.modals.first-name' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item.firstName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.modals.last-name' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item.lastName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="campaignName">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.campaign' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item.campaignName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="datetime">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.modals.callback-time' | translate }}</th>
+      <td mat-cell *matCellDef="let item"> {{ item.datetime | date:'MMM d, h:mm a' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef>{{ 'panel.dialer.modals.comments' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item.comments }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let item">
+        <button
+            *ngIf="item.active; else inactive"
+            mat-icon-button
+            mat-stroked-button
+            color="accent"
+            (click)="close({ phoneNumber: item.phoneNumber, leadId: item.leadId, callbackId: item.callbackId })"
+            tabindex="-1"
+        >
+          <vs-icon [size]="18">call</vs-icon>
+        </button>
+        <ng-template #inactive>
+          <button
+              mat-icon-button
+              mat-stroked-button
+              color="default"
+              (click)="close({ phoneNumber: item.phoneNumber, leadId: item.leadId, callbackId: item.callbackId })"
+              tabindex="-1"
+          >
+            <vs-icon [size]="18">call</vs-icon>
+          </button>
+
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<h2 *ngIf="!callbacks.length">{{ 'panel.dialer.no-callbacks' | translate }}</h2>

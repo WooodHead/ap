@@ -1,0 +1,19 @@
+:host {
+  display: inline-flex;
+
+  > div {
+    min-width: 40px;
+    margin-right: 20px;
+  }
+}
+
+:host-context(.vertical) {
+  width: 100%;
+  justify-content: space-between;
+
+  > div {
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

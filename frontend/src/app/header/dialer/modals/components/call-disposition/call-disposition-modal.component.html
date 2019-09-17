@@ -1,0 +1,86 @@
+<div class="box">
+  <div class="box_title">
+
+    <!-- Problem with default sorting object keys -->
+    <!-- <ng-container *ngFor="let field of lead | keyvalue">
+      <div class="box_title__item" *ngIf="field.value">
+          {{field.value}} 
+      </div>
+    </ng-container>    -->
+    <div class="box_title__item" *ngIf="lead.fullName">
+      {{lead.fullName}}
+    </div>
+    <div class="box_title__item" *ngIf="lead.phoneNumber">
+      {{lead.phoneNumber}}
+    </div>
+    <div class="box_title__item" *ngIf="lead.email">
+      {{lead.email}}
+    </div>
+    <div class="box_title__item" *ngIf="lead.address">
+      {{lead.address}}
+    </div>
+  </div>
+
+  <div class="box_content">
+    <mat-tab-group mat-stretch-tabs (selectedTabChange)="showCallback = !!$event.index">
+      <mat-tab label="Dispo">
+        <form [formGroup]="formDispo" (ngSubmit)="onSubmitDispo(returnToPause)" autoComplete='off' id="dispo">
+          <mat-radio-group class="wrapper" formControlName="status">
+            <mat-radio-button *ngFor="let item of (statuses$ | async)" [value]="item.value">{{ item.title }}
+            </mat-radio-button>
+          </mat-radio-group>
+
+          <div class="comment">
+            <mat-form-field>
+              <input matInput placeholder="Comment" formControlName="comments">
+            </mat-form-field>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Callback">
+        <form [formGroup]="formCallback" (ngSubmit)="onSubmitCallback(returnToPause)" autoComplete='off' id="callback">
+          <div class="wrapper">
+            <div formGroupName="datetime">
+              <mat-form-field>
+                <input matInput type="text" placeholder="Date" formControlName="date">
+                <mat-icon matSuffix>calendar_today</mat-icon>
+                <mat-hint align="start">MM/DD/YYYY</mat-hint>
+
+                <mat-error *ngIf="formCallback.get('datetime').get('date').hasError('required')">
+                  {{ 'validationErrors.date.required' | translate }}</mat-error>
+                <mat-error *ngIf="formCallback.get('datetime').get('date').hasError('pattern')">
+                  {{ 'validationErrors.date.invalid' | translate }}</mat-error>
+                <mat-error *ngIf="formCallback.get('datetime').get('date').hasError('invalid')">
+                  {{ 'validationErrors.date.invalid' | translate }}</mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput type="text" placeholder="Time" formControlName="time">
+                <mat-icon matSuffix>access_time</mat-icon>
+                <mat-hint align="start">HH:MM</mat-hint>
+
+                <mat-error *ngIf="formCallback.get('datetime').get('time').hasError('required')">
+                  {{ 'validationErrors.time.required' | translate }}</mat-error>
+                <mat-error *ngIf="formCallback.get('datetime').get('time').hasError('pattern')">
+                  {{ 'validationErrors.time.invalid' | translate }}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="Comment" formControlName="comments">
+            </mat-form-field>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+    <div class="actions">
+      <mat-checkbox [(ngModel)]="returnToPause">{{ 'return-to-pause' | translate }}</mat-checkbox>
+      <button *ngIf="!showCallback" [disabled]="!formDispo.value.status" type="submit" form="dispo" mat-flat-button
+        color="accent">{{ 'submit' | translate }}</button>
+      <button *ngIf="showCallback" [disabled]="!formDispo.value.status" type="submit" form="callback" mat-flat-button
+        color="accent">{{ 'submit' | translate }}</button>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+</div>
+<vs-spinner *ngIf="loading$ | async"></vs-spinner>

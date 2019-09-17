@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  agent_panel:
+    image: agentpanelv2:latest
+    hostname: agent-panel
+    container_name: agent_panel
+    restart: always
+    network_mode: bridge
+    command: sh -c "envsubst < /etc/voicespin-apps/config.json.src > /etc/voicespin-apps/config.json && ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime && date && cd backend && node dist/src/main.js"
+    ports:
+      - "3005:3000"
+    environment:
+      - HOST_IP=${HOST_IP}
+      - TIME_ZONE=${TIME_ZONE}
+      - VOICEAPP_ENV_DIALER_URL=${VOICEAPP_ENV_DIALER_URL}

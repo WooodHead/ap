@@ -1,0 +1,75 @@
+@import '~@angular/material/theming';
+
+@import '_palletes';
+@import '_colors';
+@import '_modals';
+@import '_extension';
+@import '_borders';
+
+@include mat-core();
+
+$vs-primary: mat-palette($green-pallete, 700);
+$vs-accent:  mat-palette($green-accent-pallete, 700);
+$vs-warn:    mat-palette($mat-deep-orange, 700);
+
+$vs-theme: mat-light-theme($vs-primary, $vs-accent, $vs-warn);
+
+@include angular-material-theme($vs-theme);
+
+body snack-bar-container.mat-snack-bar-container {
+  min-width: 100px;
+
+  &.info {
+    background: mat-color($vs-accent);
+  }
+
+  &.error {
+    background: mat-color($vs-warn);
+  }
+
+  &.rate {
+    padding: 5px 10px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  background: #fff;
+}
+
+iframe#vici {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  // width: 1000px;
+  // height: 1000px;
+}
+
+// height: 100% centered login page but panel is broken
+app-root {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+.mat-icon-button {
+  &.mat-stroked-button {
+    line-height: 36px;
+  }
+}
+
+.mat-stroked-button {
+  border-width: 2px !important;
+}
+
+ 
+mat-form-field.editable-field {
+  .mat-form-field-infix {
+      border-top: 0 !important;
+  }
+}

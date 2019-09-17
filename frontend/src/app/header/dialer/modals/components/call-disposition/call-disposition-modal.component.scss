@@ -1,0 +1,125 @@
+@import "_colors";
+@import "_borders";
+
+
+:host {
+  display: flex;
+  position: relative;
+  height: 100%;
+  flex-direction: column;
+  height: 212px;
+
+  .box {
+    display: flex;
+
+    &_title {
+      @extend .right-separator;
+      padding: 36px 10px 10px 10px;    
+      flex-direction: column;
+
+
+      &__item {
+        margin-bottom: 5px;
+      }
+    }
+
+    .box_content {
+      position: relative;
+      width: 100%;
+    }
+
+  }
+
+  mat-tab-group {
+    width: 100%;
+
+    /deep/ .mat-tab-label {
+      height: 36px;
+    }
+  }
+
+  .mat-dialog-title {
+    margin: 0;
+  }
+
+
+  mat-divider {
+    position: absolute;
+    bottom: 57px;
+    width: 100%;
+  }
+
+  .actions {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 1;
+
+    .mat-checkbox {
+      margin-right: 20px;
+    }
+  }
+}
+
+form {
+  .wrapper {
+    padding: 10px 10px 0;
+    display: block;
+  }
+
+  &#dispo {
+    .wrapper {
+      height: 78px;
+    }
+    mat-radio-group {
+      mat-radio-button {
+        margin-bottom: 5px;
+        width: 20%;
+
+        /deep/ label.mat-radio-label {
+          width: 100%;
+
+          .mat-radio-label-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 5px;
+          }
+        }
+        //width: 30%;
+
+        //&:nth-child(4n) {
+        //  width: auto;
+        //}
+      }
+    }
+
+    .comment {
+      width: 30%;
+      margin-left: 10px;
+      margin-top: 30px;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+
+  &#callback {
+    .wrapper {
+      display: flex;
+      height: 165px;
+    }
+
+    > mat-form-field {
+      margin-right: 0;
+      flex: 3;
+    }
+
+    > div {
+      mat-form-field {
+        margin-right: 15px;
+        flex: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+:host {
+  > div {
+    display: inline-flex;
+
+    &.dialer-toggle {
+      margin-right: 20px;
+
+      mat-slide-toggle {
+        /deep/ span.mat-slide-toggle-content {
+          font-weight: bold;
+          font-size: 18px;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    > div {
+      display: inline-flex;
+      align-items: center;
+
+      div, app-crm-button {
+        min-width: 40px;
+        margin-right: 20px;
+
+        &:last-child:not(:only-child) {
+          margin-right: 0;
+        }
+      }
+
+      &:last-child:not(:only-child) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+:host-context(.vertical) {
+  flex-direction: column;
+  width: 100%;
+
+  > div {
+    width: 100%;
+    padding: 0 15px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 60px;
+    align-items: center;
+
+    mat-divider {
+      display: none;
+    }
+
+    &.dialer-toggle {
+      margin-right: 0;
+    }
+  }
+}
+
+:host-context(.vertical.webrtc) {
+  flex-direction: column;
+  width: 100%;
+
+  > div {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 0;
+
+    mat-divider {
+      display: block;
+    }
+
+    > div {
+      width: 100%;
+      padding: 0 15px;
+      margin-right: 0;
+      justify-content: space-between;
+      box-sizing: border-box;
+      display: inline-flex;
+      height: 60px;
+      align-items: center;
+    }
+  }
+}

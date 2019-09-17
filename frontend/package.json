@@ -1,0 +1,112 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --aot --proxy-config proxy.conf.json",
+    "start:dev": "ng serve --aot --proxy-config proxy.conf.json --host 0.0.0.0",
+    "build": "ng build --progress --output-path dist && npm run move:dist",
+    "build:dev": "ng build --aot --build-optimizer --progress --output-path dist && npm run move:dist",
+    "build:prod": "ng build --prod --build-optimizer --progress --output-path dist && npm run move:dist",
+    "move:dist": "rm -rf ../backend/src/dist && mv dist ../backend/src",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "test": "jest",
+    "test:coverage": "jest --runInBand --coverage",
+    "test:snapshot": "jest --coverage -u",
+    "test:watch": "jest --clearCache && jest --watch"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^7.2.15",
+    "@angular/cdk": "^7.3.7",
+    "@angular/common": "^7.2.15",
+    "@angular/compiler": "^7.2.15",
+    "@angular/core": "^7.2.15",
+    "@angular/forms": "^7.2.15",
+    "@angular/http": "^7.2.15",
+    "@angular/material": "^7.3.7",
+    "@angular/platform-browser": "^7.2.15",
+    "@angular/platform-browser-dynamic": "^7.2.15",
+    "@angular/router": "^7.2.15",
+    "@ngx-translate/core": "^10.0.2",
+    "@ngx-translate/http-loader": "^3.0.1",
+    "@ngxs/devtools-plugin": "^3.2.0",
+    "@ngxs/form-plugin": "^3.2.0",
+    "@ngxs/logger-plugin": "^3.2.0",
+    "@ngxs/router-plugin": "^3.2.0",
+    "@ngxs/storage-plugin": "^3.2.0",
+    "@ngxs/store": "^3.2.0",
+    "core-js": "^2.5.4",
+    "jssip": "^3.2.12",
+    "rxjs": "^6.5.2",
+    "sip.js": "^0.11.3",
+    "socket.io-client": "^2.1.1",
+    "zone.js": "^0.8.29"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.13.8",
+    "@angular/cli": "^7.3.9",
+    "@angular/compiler-cli": "^7.2.15",
+    "@angular/language-service": "^7.2.15",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/jest": "^23.3.1",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.2.1",
+    "jasmine": "^3.1.0",
+    "jasmine-core": "^2.99.1",
+    "jasmine-marbles": "^0.3.1",
+    "jasmine-spec-reporter": "^4.2.1",
+    "jest": "^23.4.2",
+    "jest-preset-angular": "^5.2.3",
+    "jest-zone-patch": "0.0.8",
+    "karma": "^3.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^2.0.1",
+    "karma-jasmine": "^1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "^5.4.0",
+    "ts-node": "~5.0.1",
+    "tslint": "^5.18.0",
+    "tslint-angular": "^1.1.2",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "~3.2.4"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setup-jest.ts",
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "src/tsconfig.spec.json"
+      },
+      "__TRANSFORM_HTML__": true
+    },
+    "transform": {
+      "^.+\\.(ts|js|html)$": "<rootDir>/node_modules/jest-preset-angular/preprocessor.js"
+    },
+    "testMatch": [
+      "<rootDir>/**/*.spec.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "html",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "app/(.*)": "<rootDir>/src/app/$1",
+      "env/(.*)": "<rootDir>/src/environments/$1"
+    },
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/modules/*.*/"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx)"
+    ],
+    "modulePathIgnorePatterns": [
+      "dist"
+    ]
+  }
+}

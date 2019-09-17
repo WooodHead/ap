@@ -1,0 +1,92 @@
+<div *ngIf="config.dialerEnabled" class="dialer-toggle">
+  <mat-slide-toggle
+      labelPosition="before"
+      (change)="onSwitchMode()"
+  >
+    {{ 'panel.dialer.title' | translate }}
+  </mat-slide-toggle>
+</div>
+
+<mat-divider *ngIf="config.dialerEnabled"></mat-divider>
+
+<div>
+  <div>
+    <app-crm-button *ngIf="config.notificator.enabled"></app-crm-button>
+
+    <app-webrtc-actions
+        *ngIf="config.webrtc && (useWebRTC$ | async) && !(tableLoading$ | async)"
+        [@fade]="{ value: triggerValue, params: { duration: 200 } }"
+        [isInCall]="showHangUp$ | async"
+        [isRinging]="showAnswer$ | async"
+        (hold)="onHold()"
+        (showDialpad)="onShowDialpad()"
+        (answer)="onAnswer()"
+        (manualDial)="onManualDial($event)"
+        (showCallsHistory)="onShowCallsHistory()"
+        (showContacts)="onShowContacts()"
+    ></app-webrtc-actions>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div>
+    <div>
+      <button
+          mat-icon-button
+          mat-stroked-button
+          color="warn"
+          *ngIf="((showHangUp$ | async) || (showAnswer$ | async)) && !(tableLoading$ | async)"
+          [@fade]="{ value: triggerValue, params: { duration: 200 } }"
+          [matTooltip]="'panel.tooltips.hang-up' | translate"
+          (click)="onHangUp()"
+      >
+        <vs-icon>
+          call_end
+        </vs-icon>
+      </button>
+    </div>
+
+    <div *ngIf="showPause$ | async">
+      <button
+          mat-icon-button
+          mat-stroked-button
+          [matTooltip]="'panel.tooltips.pause' | translate"
+          [matMenuTriggerFor]="menu"
+      >
+        <vs-icon>
+          pause
+        </vs-icon>
+      </button>
+      <mat-menu #menu="matMenu" overlapTrigger="false">
+        <button (click)="onPause(item.pauseCode)" mat-menu-item *ngFor="let item of config.pauses">{{ item.pauseReason }}</button>
+      </mat-menu>
+    </div>
+
+    <div *ngIf="!(showPause$ | async)">
+      <button
+          mat-icon-button
+          mat-stroked-button
+          [matTooltip]="'panel.tooltips.un-pause' | translate"
+          (click)="onUnPause()"
+      >
+        <vs-icon>
+          play_arrow
+        </vs-icon>
+      </button>
+    </div>
+
+    <div>
+      <button
+          mat-icon-button
+          mat-stroked-button
+          color="warn"
+          [matTooltip]="'panel.tooltips.logout' | translate"
+          (click)="onLogout()"
+      >
+        <vs-icon>
+          exit_to_app
+        </vs-icon>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+{
+  "login": {
+    "title": "Agent Login",
+    "agent": "Agent",
+    "extension": "Extension",
+    "placeholder-agent": "Enter Agent ID",
+    "placeholder-extension": "Enter Extension",
+    "recently-used": "Recently Used",
+    "agent-panel-view": "Agent Panel View",
+    "sign-in": "Sign In",
+    "logout": "Logout",
+    "external-logout-message": "You were logged out",
+    "open-panel": "Open Panel",
+    "extension-secret": "Extension secret",
+    "useWebRTC": "Use WebRTC?",
+    "errors": {
+      "required": "All fields are required",
+      "no-agent": "Agent does not exist",
+      "not-active": "Agent is not active",
+      "no-extension": "Extension does not exist",
+      "not-agent-extension": "Extension is not for agent",
+      "no-queue": "Agent is not in any queue",
+      "agent-busy": "Agent is already connected to extension {{extension}}",
+      "no-extension-for-agent": "There is no extension for agent",
+      "extension-busy": "Agent {{agent}}/{{username}} is already connected to this extension",
+      "incorrect-secret": "Extension / secret pair is incorrect",
+      "unknown-error": "Unknown error occurred. Please try again later"
+    }
+  },
+  "panel": {
+    "horizontal": "Horizontal",
+    "vertical": "Vertical",
+    "name": "Name",
+    "ext-id": "Ext.ID",
+    "crm": "CRM",
+    "status": "Status",
+    "caller": "CallerID",
+    "call-rate": {
+      "title": "How was the audio?",
+      "hint-bad": "Very bad",
+      "hint-good": "Very good"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "close": "Close",
+      "favorites-first": "Favorites first"
+    },
+    "contacts-table": {
+      "actions": "Actions",
+      "call": "Call",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "note": "Note",
+      "full-name": "Full Name",
+      "phone-number": "Phone Number",
+      "unable-to-delete-message": "Unable to delete contact",
+      "unable-to-save-message": "Unable to save contact",
+      "deleted-message": "Contact was deleted",
+      "saved-message": "Contact was saved"
+    },
+    "calls-history": {
+      "title": "Calls history",
+      "close": "Close"
+    },
+    "calls-history-table": {
+      "actions": "Actions",
+      "call": "Call",
+      "callerId": "Caller ID",
+      "contacts": "Contacts",
+      "date": "Date",
+      "duration": "Duration",
+      "talkedTo": "Talked to",
+      "time": "Time",
+      "type": "Type"
+    },
+    "edit-contact": {
+      "cancel": "Cancel",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "mark-as-favorite": "Mark as favorite",
+      "note": "Note",
+      "phone-number": "Phone number",
+      "title-add": "Add contact",
+      "title-edit": "Edit contact",
+      "save": "Save"
+    },
+    "modals": {
+      "call": "Make call",
+      "conference": "Add call (conference)",
+      "transfer": "Call transfer"
+    },
+    "tooltips": {
+      "add-contact": "Add Contact",
+      "calls-history": "Calls History",
+      "crm": "Open CRM",
+      "quick-hang-up": "Answering Machine",
+      "hang-up": "Hang Up",
+      "change-view": "Change View",
+      "contacts": "Contacts",
+      "pause": "Pause",
+      "un-pause": "Un Pause",
+      "logout": "Logout",
+      "manual-dial": "Manual Dial",
+      "call": "Make call",
+      "dialpad": "Dialpad",
+      "redial": "Redial",
+      "call-back": "Callbacks",
+      "empty-leads": "There are no leads",
+      "answer": "Answer call",
+      "hold": "Hold call",
+      "release-hold": "Release Hold",
+      "conference": "Add call (conference)",
+      "transfer": "Call transfer"
+    },
+    "dialer": {
+      "title": "Dialer",
+      "campaign": "Campaign",
+      "campaigns": "Campaigns",
+      "campaign-shortened": "Camp.",
+      "campaigns-shortened": "Camps.",
+      "no-answer": "Exiting, no answer",
+      "no-redial": "No calls",
+      "no-dial": "Dial failed",
+      "no-hold": "Hold operation failed",
+      "no-transfer": "Transfer failed",
+      "no-callbacks": "No callbacks",
+      "unknown": "Unknown",
+      "switch-tooltip": "You сan't switch to call center while you are in call",
+      "modals": {
+        "select-dialer-campaign": "Select dialer campaign",
+        "user-group-choosen": "Dialer multiple campaign ",
+        "user-group-name": "User group name",
+        "no-active-campaign": "There are no active campaigns",
+        "empty": "empty",
+        "lead": "lead",
+        "leads": "leads",
+        "redial": "Redial to",
+        "lead-id": "Lead ID",
+        "phone-number": "Phone number",
+        "first-name": "First Name",
+        "last-name": "Last Name",
+        "callback-time": "Callback Time",
+        "comments": "Comments",
+        "select-campaign": {
+          "campaign-title": "Select dialer campaign",
+          "user-group-title": "Dialer multiple campaign ",
+          "user-group-name": "User group name",
+          "turn-on-dialer": "Turn on dialer",
+          "empty-campaigns": "There are no leads in this user croup",
+          "empty-leads": "There are no leads"
+        },
+        "disconnect": {
+          "title": "Dialer was disconnected",
+          "actions": {
+            "reconnect": "Reconnect",
+            "switch-to-call-center": "Switch to Call Center"
+          }
+        },
+        "dispo": {
+          "title": "Callee information"
+        }
+      }
+    },
+    "webrtc": {
+      "connecting": "Connecting",
+      "connected": "Connected",
+      "disconnected": "Disconnected",
+      "failed": "Connection failed",
+      "caller": "Caller"
+    },
+    "table": {
+      "AnswerInCalls": "In Calls",
+      "AnswerOUTCalls": "Out Calls",
+      "AvgCallsDuration": "Avg Call Dur.",
+      "AvgEffCallsDuration": "Avg. Eff. Calls Dur.",
+      "CallerIDName": "Caller ID",
+      "EffectiveCalls": "Eff. Calls",
+      "ExtraData1": "Extra Data 1",
+      "ExtraData2": "Extra Data 2",
+      "ExtraData3": "Extra Data 3",
+      "ExtraData4": "Extra Data 4",
+      "FromQueue": "From Queue (ID)",
+      "FromQueueName": "From Queue",
+      "LastCall": "Last call",
+      "LastLogin": "Last Login",
+      "LastPause": "Last Pause",
+      "LoginTime": "Login Time",
+      "NoAnswerOUTCalls": "Failed Attempts",
+      "PauseTime": "Time in Pause",
+      "Status": "Status",
+      "StatusTime": "Time in Status",
+      "SumCalls": "Sum Calls",
+      "TalkingTo": "Talking To",
+      "TotalCallDuration": "Call Dur.",
+      "TotalCallDurationWith": "Total Call Dur.",
+      "TotalEffectiveDuration": "Total Eff. Dur.",
+      "TotalIdleDuration": "Total Idle",
+      "TotalPauseDuration": "Total Pause Dur.",
+      "WaitingCalls": "Waiting Calls",
+      "status": "Status",
+      "last_state_change": "Time In Status",
+      "last_call_finish": "Last Call Finish",
+      "calls_today": "Calls Today",
+      "phone_number": "Talking To",
+      "phoneNumber": "Talking To",
+      "lead_id": "Lead ID",
+      "crmCampaign": "CRM Campaign",
+      "crmStatus": "CRM Status",
+      "offset": "Local Time",
+      "source": "Source",
+      "title": "Titlie",
+      "affiliate": "Affiliate",
+      "source1": "Source1",
+      "source2": "Source2",
+      "source3": "Source3",
+      "source4": "Source4",
+      "rank": "Rank",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "country_code": "Country",
+      "city": "City",
+      "email": "Email",
+      "comments": "Comments"
+    }
+  },
+  "validationErrors": {
+    "date": {
+      "required": "Date is required",
+      "invalid": "Date is invalid",
+      "oldDate": "Date should be greater then now"
+    },
+    "time": {
+      "required": "Invalid time",
+      "invalid": "Time is required"
+    },
+    "phone": {
+      "min-length": "Number should have at least 7 digits",
+      "pattern": "Allowed characters: digits, space, +, -, (, )",
+      "required": "Enter phone number"
+    }
+  },
+  "confirmModals": {
+    "logout": {
+      "title": "Are you sure you want to log out?"
+    },
+    "login": {
+      "title": "There is an open connection",
+      "text": "Provided agent/extension is currently used on another PC. Are you sure you want to close current connection and create here new?"
+    },
+    "notificationPermissionModal": {
+      "title": "Are you sure you want to block notifications from application? You won't be able to receive call otifications."
+    },
+    "dialerQueuesModal": {
+      "title": "Choose dialer campaign"
+    },
+    "callCenterConirmModal": {
+      "title": "Do you want to switch back to call center and logout from dialer?"
+    }
+  },
+  "yes": "Yes",
+  "no": "No",
+  "dial": "Dial",
+  "cancel": "Cancel",
+  "submit": "Submit",
+  "return-to-pause": "Return to pause"
+}

@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+}
+.logo {
+  position: relative;
+  margin-right: 20px;
+}
+img {
+  width: 100px;
+  display: block;
+}
+.version {
+  position: absolute;
+  color: #444;
+  font-size: 12px;
+  font-weight: 600;
+  top: 20px;
+  right: 0;
+}

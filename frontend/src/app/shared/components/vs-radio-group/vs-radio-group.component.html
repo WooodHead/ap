@@ -1,0 +1,11 @@
+<label *ngIf="label">{{ label }}</label>
+
+<mat-radio-group [value]="value" [disabled]="disabled">
+  <mat-radio-button
+      *ngFor="let row of list"
+      [value]="row.value"
+      (change)="onChange(row.value)"
+  >
+    {{ row.title | translate }}
+  </mat-radio-button>
+</mat-radio-group>

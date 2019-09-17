@@ -1,0 +1,51 @@
+<vs-spinner *ngIf="loading$ | async" [@fade]></vs-spinner>
+
+<div class="contacts" *ngIf="data.mode === 'contacts'">
+  <div class="box">
+    <div class="title-column">
+      <div>
+        <div class="header">
+          {{ 'panel.contacts.title' | translate }}
+          <div class="top-divider"></div>
+          <div class="add-icon">
+            <button
+              mat-icon-button
+              [matTooltip]="'panel.tooltips.add-contact' | translate"
+              (click)="showEditContact()"
+            >
+              <vs-icon>
+                person_add
+              </vs-icon>
+            </button>
+          </div>
+          <mat-checkbox [(ngModel)]="favoritesFirst" class="favorites-first">{{
+            'panel.contacts.favorites-first' | translate
+          }}</mat-checkbox>
+        </div>
+      </div>
+      <button mat-raised-button (click)="close()" class="close-button">
+        {{ 'panel.contacts.close' | translate }}
+      </button>
+    </div>
+    <div class="grid-column">
+      <app-contacts-table
+        *ngIf="contactsDataSource"
+        #contactsTable
+        (call)="onCall($event)"
+        (editContact)="showEditContact($event)"
+        [favoritesFirst]="favoritesFirst"
+        [dataSource]="contactsDataSource"
+      >
+      </app-contacts-table>
+    </div>
+  </div>
+</div>
+
+<app-edit-contact
+  *ngIf="data.mode === 'contact'"
+  [contact]="contact"
+  (added)="onAdded($event)"
+  (cancelled)="onCancelled()"
+  (updated)="onUpdated($event)"
+>
+</app-edit-contact>

@@ -1,0 +1,24 @@
+<div class="panel-tiles" *ngIf="data; else loading" [@fade]>
+  <ng-container *ngFor="let column of columns">
+      <app-panel-tile
+        *ngIf="!column.editable"
+        [key]="column.key"
+        [data]="data[column.key]"
+        [display]="column.display"
+      >
+      </app-panel-tile>
+
+      <app-panel-tile-editable
+        *ngIf="column.editable"
+        [key]="column.key"
+        [data]="data[column.key]"
+        [display]="column.display"
+        (update)="updateTableItem($event)"
+      >
+      </app-panel-tile-editable>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <vs-spinner [@fade]></vs-spinner>
+</ng-template>

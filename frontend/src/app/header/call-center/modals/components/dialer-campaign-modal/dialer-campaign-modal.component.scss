@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  min-height: 83px;
+}
+
+.campaign-item {
+  cursor: pointer;
+
+  span {
+    color: #555;
+    font-size: 10px;
+    margin-left: 5px;
+  }
+
+  &.mat-chip-disabled {
+    opacity: .4;
+    cursor: default;
+  }
+}

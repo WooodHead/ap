@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>
+  {{ 'panel.modals.' + data.type | translate }}:
+</h2>
+
+<form class="dial-form" [formGroup]="form" (ngSubmit)="onSubmit()" autoComplete='off'>
+  <div class="phone-input">
+    <mat-form-field>
+      <input
+          #phone
+          matInput
+          placeholder="{{ 'panel.dialer.modals.phone-number' | translate }}"
+          required
+          type="tel"
+          formControlName="phoneNumber"
+          tabindex="-1"
+      >
+      <mat-error *ngIf="submitted && form.controls.phoneNumber.hasError('required')">
+        {{ 'validationErrors.phone.required' | translate }}
+      </mat-error>
+      <mat-error *ngIf="submitted && form.controls.phoneNumber.hasError('minlength')">
+          {{ 'validationErrors.phone.min-length' | translate }}
+      </mat-error>
+      <mat-error *ngIf="submitted && form.controls.phoneNumber.hasError('pattern')">
+        {{ 'validationErrors.phone.pattern' | translate }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-dialog-actions>
+    <vs-button (clicked)="close()" color="warn">{{ 'cancel' | translate }}</vs-button>
+    <vs-button type="submit" color="accent">{{ 'dial' | translate }}</vs-button>
+  </mat-dialog-actions>
+</form>

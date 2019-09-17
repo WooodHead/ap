@@ -1,0 +1,12 @@
+<button
+  mat-mini-fab
+  [disabled]="disabled"
+  [color]="color"
+  [matTooltip]="tooltip"
+  [tabindex]="tabindex"
+  (click)="clicked.emit()"
+>
+  <vs-icon>
+    <ng-content></ng-content>
+  </vs-icon>
+</button>

@@ -1,0 +1,176 @@
+@import "_colors";
+
+:host {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  font-weight: 300;
+  font-size: 15px;
+  z-index: 10;
+
+  background: #fff;
+  border-bottom: 3px solid #444;
+  color: #444;
+
+  mat-divider {
+    display: none;
+  }
+}
+
+:host-context(.vertical) {
+  height: 120px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+
+  /deep/ mat-divider {
+    width: 100%;
+    border-top-color: #444;
+    display: block;
+  }
+
+  > div {
+    width: 100%;
+    height: 60px;
+    padding: 0 15px;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    mat-divider {
+      display: none;
+    }
+
+    > div {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  .header-actions {
+    padding: 0;
+  }
+}
+
+:host-context(.vertical.dialer), :host-context(.vertical.webrtc) {
+  height: 180px;
+
+  .header-actions {
+    height: 120px;
+  }
+}
+
+:host-context(.vertical.webrtc) {
+  > div {
+    padding: 0;
+  }
+
+  .agent-data {
+    flex-direction: column;
+    height: 100px;
+
+    mat-divider {
+      display: block;
+    }
+
+    > div {
+      width: 100%;
+      height: 40px;
+      padding: 0 15px;
+      justify-content: space-between;
+      box-sizing: border-box;
+
+      > div:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .webrtc-status {
+    margin-left: 0;
+  }
+}
+
+.agent-data {
+  > div {
+    display: inline-flex;
+    align-items: center;
+
+    & > div {
+      min-width: 40px;
+      margin-right: 20px;
+
+      &.no-margin, &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.agent-data, .header-actions, app-call-center-actions, app-dialer-actions {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+}
+
+.icon-cell {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-right: 4px;
+  }
+}
+
+/deep/ button {
+  &.mode {
+    border-color: $cyan;
+    color: $cyan;
+  }
+
+  &.crm {
+    font-size: 12px;
+  }
+}
+
+div.webrtc-status {
+  display: inline-flex;
+  margin-left: 20px;
+
+  > div {
+    height: 40px;
+    line-height: 40px;
+    margin-right: 20px;
+
+    &.no-margin, &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .status {
+    text-transform: capitalize;
+    font-weight: bold;
+
+    &.connected {
+      color: $green-accent;
+    }
+
+    &.connecting {
+      color: $yellow;
+    }
+
+    &.failed, &.disconnected {
+      color: $caret;
+    }
+  }
+
+  .reconnect {
+    margin-right: 10px;
+  }
+}

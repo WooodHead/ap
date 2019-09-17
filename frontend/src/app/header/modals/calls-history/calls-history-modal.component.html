@@ -1,0 +1,45 @@
+
+<vs-spinner *ngIf="loading$ | async" [@fade]></vs-spinner>
+
+<ng-container *ngIf="data.mode === 'history'">
+  <div class="calls-history">
+    <div class="box">
+      <div class="title-column">
+        <div class="header">{{ 'panel.calls-history.title' | translate }}</div>
+        <button mat-raised-button (click)="close()" class="close-button">
+          {{ 'panel.calls-history.close' | translate }}
+        </button>
+      </div>
+      <div class="period-column">
+        <mat-select
+          [(value)]="period"
+          (selectionChange)="onPeriodChange($event)"
+          panelClass="period-panel"
+        >
+          <mat-option style="height: 2.85em" *ngFor="let period of periods" [value]="period.value">
+            {{ period.viewValue }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div class="grid-column">
+        <app-calls-history-table
+          [tableData]="$tableDataSource | async"
+          [panelMode]="panelMode"
+          (call)="onCall($event)"
+          (addContact)="onSaveContact($event)"
+          (editContact)="onAddContact($event)"
+        >
+        </app-calls-history-table>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-edit-contact
+  *ngIf="data.mode === 'contact'"
+  [contact]="contact"
+  (added)="onSaveContact($event)"
+  (updated)="onSaveContact($event)"
+  (cancelled)="onCancelled()"
+>
+</app-edit-contact>

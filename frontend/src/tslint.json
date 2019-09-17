@@ -1,0 +1,26 @@
+{
+  "extends": ["tslint-angular", "tslint-config-airbnb", "tslint-config-prettier"],
+  "rules": {
+    "max-classes-per-file": false,
+    "no-use-before-declare": false,
+    "max-line-length": [
+      true,
+      {
+        "limit": 100,
+        "ignore-pattern": "^import |^export {(.*?)}" 
+      }
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      ["app", "vs"],
+      "kebab-case"
+    ]
+  }
+}

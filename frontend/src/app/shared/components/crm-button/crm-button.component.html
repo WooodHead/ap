@@ -1,0 +1,10 @@
+<button 
+  mat-icon-button 
+  mat-stroked-button 
+  color="accent" 
+  class="crm" 
+  [disabled]="!notificator.url" 
+  [matTooltip]="'panel.tooltips.crm' | translate"
+  (click)="notificator.open()">
+  {{ 'panel.crm' | translate }}
+</button>

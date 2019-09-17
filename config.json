@@ -1,0 +1,112 @@
+{
+    "general": {
+        "port": 3000,
+        "agent": true,
+        "dashboard": true,
+        "compressEnabled": false,
+	"webrtc": true
+    },
+    "sources": {
+        "dialerEnabled": true,
+        "keywordSpottingEnabled": false,
+        "callCenterEnabled": true,
+        "asteriskEnabled": true,
+        "callCenterAndDialerEnabled": true
+    },
+    "intervals": {
+        "stream": 3000,
+        "update": 2000,
+        "heartbeat": 20000,
+        "quickPopup": false,
+        "popupRate": 500,
+        "whosConnectedFreq": 60
+    },
+    "mongo": {
+        "dashboard": "mongodb://${MONGO_IP}/dashboard",
+        "configs": "mongodb://${MONGO_IP}/configs",
+        "admin": "mongodb://${MONGO_IP}/voicespin-admin",
+        "aqm": "mongodb://${MONGO_IP}/aqm"
+    },
+    "faye": {
+        "mount": "stream"
+    },
+    "mysql": {
+        "host": "${MYSQL_IP}",
+        "host_client": "${MYSQL_IP}",
+        "port": 3306,
+        "user": "cron",
+        "password": "ebe5c37637ce9ce258aaef311faa4bb7",
+        "db": "asterisk_vici"
+    },
+    "mysqlCallCenter": {
+        "db": "callcenter_11"
+    },
+    "mysqlPbx": {
+        "host": "${MYSQL_IP}",
+        "host_client": "${MYSQL_IP}",
+        "port": 3306,
+        "user": "cron",
+        "password": "ebe5c37637ce9ce258aaef311faa4bb7",
+        "db": "asterisk"
+    },
+    "asterisk": {
+        "version": "11",
+        "ami": {
+            "astManPort": "5038",
+            "astManHost": "${ASTERISK_IP}",
+            "astManUser": "nodejs",
+            "astManPass": "17cf0565897a66fb19001f92ca2bcf8a"
+        }
+    },
+    "agent": {
+        "login": {
+            "context": "from-agent"
+        }
+    },
+    "debug": {
+        "connections": false
+    },
+    "dialer": {
+        "effectiveCallLength": "30"
+    },
+    "keywordSpotting": {
+        "host": "${KEYWORDSPOTTING_IP}",
+        "port": 9200,
+        "index": "*",
+        "doc_type": "cdr",
+        "keywordRecordsURL": "http://example.pbx.voicespin.com/vs/fetchrec.php"
+    },
+    "languages": [
+        {
+            "displayLabel": "En",
+            "language": "English",
+            "fileName": "en",
+            "flag": "us.png",
+            "dir": "ltr"
+        },
+        {
+            "displayLabel": "He",
+            "language": "Hebrew",
+            "fileName": "he",
+            "flag": "il.png",
+            "dir": "rtl"
+        },
+        {
+            "displayLabel": "Ru",
+            "language": "Russian",
+            "fileName": "ru",
+            "flag": "ru.png",
+            "dir": "ltr"
+        },
+        {
+            "displayLabel": "Vn",
+            "language": "Vietnamese",
+            "fileName": "vn",
+            "flag": "vn.png",
+            "dir": "ltr"
+        }
+    ],
+    "integrations": [
+        "internal"
+    ]
+}

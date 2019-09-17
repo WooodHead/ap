@@ -1,0 +1,72 @@
+@import 'colors';
+
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+// palletes generated via http://mcg.mbitson.com
+
+$green-pallete: (
+  50: #f3fae9,
+  100: #e0f4c7,
+  200: #cceca2,
+  300: #b8e47d,
+  400: #a8df61,
+  500: $green,
+  600: #91d53e,
+  700: #86cf36,
+  800: #7cca2e,
+  900: #6bc01f,
+  A100: #fbfff8,
+  A200: #dfffc5,
+  A400: #c2ff92,
+  A700: #b4ff79,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+
+$green-accent-pallete: (
+    50: #ebf6eb,
+    100: #ceeace,
+    200: #aedcae,
+    300: #8dcd8d,
+    400: #74c374,
+    500: $green-accent,
+    600: #54b154,
+    700: #4aa84a,
+    800: #41a041,
+    900: #309130,
+    A100: #d9ffd9,
+    A200: #a6ffa6,
+    A400: #73ff73,
+    A700: #59ff59,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $dark-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: $dark-primary-text,
+    )
+);

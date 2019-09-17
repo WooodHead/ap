@@ -1,0 +1,29 @@
+.dispo-modal, .dialpad-modal {
+  height: 224px;
+}
+
+.redial-modal, .callbacks-modal {
+  height: 176px;
+}
+
+.no-padding-modal {
+  mat-dialog-container {
+    padding: 0;
+  }
+}
+
+.callbacks-modal {
+  @extend .no-padding-modal;
+}
+
+.dispo-modal {
+  @extend .no-padding-modal;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
+
+  vs-button + vs-button {
+    margin-left: 8px;
+  }
+}

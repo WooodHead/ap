@@ -1,0 +1,88 @@
+<div class='container mat-elevation-z8'>
+  <div class='table-container'>
+    <table mat-table matSort matSortActive='created' [dataSource]='dataSource' class='table'>
+      <!-- Date Column -->
+      <ng-container matColumnDef='datetime'>
+        <th mat-header-cell mat-sort-header start='desc' *matHeaderCellDef>{{ 'panel.calls-history-table.date' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>{{row.datetime | date:'dd/MM/yy' }}</td>
+      </ng-container>
+
+      <!-- Time Column -->
+      <ng-container matColumnDef='time'>
+        <th mat-header-cell *matHeaderCellDef>{{ 'panel.calls-history-table.time' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>{{row.datetime | date:'H:mm' }}</td>
+      </ng-container>
+
+      <!-- Duration Column -->
+      <ng-container matColumnDef='duration'>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ 'panel.calls-history-table.duration' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>{{row.duration | duration}}</td>
+      </ng-container>
+
+      <!-- Caller ID Column -->
+      <ng-container matColumnDef='callerName'>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ 'panel.calls-history-table.callerId' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>{{row.callerName}}</td>
+      </ng-container>
+
+      <!-- Talked to Column -->
+      <ng-container matColumnDef='callerNumber'>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ 'panel.calls-history-table.talkedTo' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>{{row.callerNumber}}</td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef='type'>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ 'panel.calls-history-table.type' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>
+          <vs-icon [ngClass]='(row.type === "IN") ? "call-received" : "call-made"'>
+            {{(row.type === 'IN') ? 'call_received' : 'call_made'}}
+          </vs-icon>
+          {{ (row.type === 'IN') ? 'Incoming' : 'Outgoing' }}
+        </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef='action'>
+        <th mat-header-cell *matHeaderCellDef>{{ 'panel.calls-history-table.actions' | translate }}</th>
+        <td mat-cell *matCellDef='let row'>
+          <button mat-icon-button [matTooltip]="('panel.calls-history-table.call' | translate)" (click)='dial(row)' class='call-button'>
+            <vs-icon>
+              call
+            </vs-icon>
+          </button>
+          <ng-container *ngIf="panelMode === 'call-center'">
+            <button 
+              *ngIf="!row.contact" 
+              mat-icon-button [matTooltip]="('panel.calls-history-table.contacts' | translate)" 
+              (click)='onContacts(row)' 
+              class='contacts-button'
+            >
+              <vs-icon>
+                person_add
+              </vs-icon>
+            </button>
+
+            <button 
+              *ngIf="row.contact"
+              mat-icon-button 
+              [matTooltip]="('panel.contacts-table.edit' | translate)" 
+              (click)='edit(row.contact)' 
+              class='edit-button'
+            >
+              <vs-icon>
+                edit
+              </vs-icon>
+            </button>
+          </ng-container>
+          
+          
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef='displayedColumns'></tr>
+      <tr mat-row *matRowDef='let row; columns: displayedColumns; let even = even;' [ngClass]='{gray: even}'></tr>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,13 @@
+export { Hopper } from './hopper.entity';
+export { User } from './user.entity';
+export { UserGroup } from './user-group.entity';
+export { Callback } from './callback.entity';
+export { Lead } from './lead.entity';
+export { Log } from './log.entity';
+export { Channel } from './channel.entity';
+export { Agent } from './agent.entity';
+export { Status } from './status.entity';
+export { LeadExtra } from './lead-extra.entity';
+export { LiveChannel } from './live-channel.entity';
+export { ParkedChannel } from './parked-channels.entity';
+export { Campaign } from './campaign.entity';

@@ -1,0 +1,12 @@
+<vs-login-form
+    (submitted)="onSubmit($event)"
+    (formInvalid)="onFormInvalid($event)"
+    (logout)="onLogout()"
+    (openPanel)="onOpenPanel($event)"
+    [loading]="loading$ | async"
+    [isWebrtc]="config.webrtc"
+    [isSmallScreen]="isSmallScreen$ | async"
+    [formData]="form$ | async"
+    [isLoggedIn]="isLoggedIn$ | async"
+>
+</vs-login-form>
